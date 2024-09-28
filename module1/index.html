@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Custom Attributes</title>
+    <script type="text/javascript" src='angular.min.js'></script>
+    <script type="text/javascript" src='interpol.js'>  </script>
+
+  </head>
+
+  <body ng-app='DIapp'>
+      <h1>This is Custom Attributes test</h1>
+      <div id="target" ng-controller="DIController">
+        <section>
+          Section 1
+          <article>
+            article 1
+          </article>
+        </section>
+        <input type="text" ng-model='name' ng-blur='upper();'>
+        <div ng-controller='messageController'>
+          {{name}} has a message: <br>
+          {{sayMessage();}}
+          <div>
+            <button ng-click="flip()">Flip</button>
+            <br>
+            <img ng-src="img/img_{{imageState}}.png" alt="Image loading..">
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+          //var element = document.getElementById('target');
+          //console.log(element.getAttribute('ng-app'));
+          var element2 = document.querySelector("[ng-app]");
+          console.log(element2);
+          console.log(element2.getAttribute('ng-app'));
+      </script>
+  </body>
+</html>
