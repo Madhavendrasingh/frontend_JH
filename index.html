@@ -1,10 +1,34 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!doctype html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" >
-    <title>Landing Page</title>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="interpol.js"></script>
   </head>
-  <body>
-    <h1>Title for Landing Page</h1>
-  </body>
+<body ng-app='LunchCheck'>
+   <div class="container" ng-controller='LunchCheckController'>
+     <h1>Lunch Checker</h1>
+
+         <div class="form-group">
+             <input id="lunch-menu" type="text"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control" ng-model='list'>
+             <p><strong>Note for grading:</strong> Any empty element (like this .., ,...) will be not concidered in the count!</p>
+         </div>
+         <div class="form-group">
+             <button class="btn btn-default" ng-click='checkLimit()'>Check If Too Much</button>
+         </div>
+         <div class="form-group message" >
+           <p ng-style="{'color' : value == 'Enjoy!' || value=='Too much!' ? 'green':'red', 'border':'solid black' ,'border-color' : value == 'Enjoy!' || value=='Too much!' ? 'green':'red', visibility: value==''?'hidden' :'visible'}" >
+             {{value}}
+          </p>
+         </div>
+   </div>
+
+</body>
 </html>
